@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -10,6 +11,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.graphql?$/i,
+        loader: path.resolve('loader/loader-lab.js'),
+      },
       {
         test: /tsx?$/i,
         loader: "ts-loader",
